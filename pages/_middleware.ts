@@ -1,11 +1,10 @@
-import type { NextFetchEvent } from "next/server";
-import type { NextRequest } from "next/server";
+import type { NextFetchEvent, NextRequest } from "next/server";
 
 export type Middleware = (
   request: NextRequest,
   event: NextFetchEvent
 ) => Promise<Response | undefined> | Response | undefined;
 
-export default function middleware(req, ev) {
+export function middleware(req: NextRequest, ev: NextFetchEvent) {
   return new Response("Hello, world!");
 }
